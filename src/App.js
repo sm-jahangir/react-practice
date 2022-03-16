@@ -9,10 +9,28 @@ const singerStyle = {
 function App() {
   return (
     <div className="App">
-      <h1 style={singerStyle}>number {number + 2222}</h1>
-      <h2 style={{color:'red', backgroundColor: 'yellowgreen', padding: '10px 20px'}}>{singer.name} {singer.job}</h2>
+      <Person></Person>
+      <Person></Person>
+      <Person></Person>
+      <Friend></Friend>
     </div>
   );
+}
+function Person() {
+  return(
+    <div className='person'>
+      <h1>Sakib Al Hasan</h1>
+      <p>Profession: Cricket</p>
+    </div>
+  )
+}
+function Friend() {
+  return (
+    <div className='person'>
+      <h3>Jhankar Mahbub</h3>
+      <p>Body Builder</p>
+    </div>
+  )
 }
 
 export default App;
