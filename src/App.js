@@ -1,38 +1,41 @@
-import './App.css';
-
-const number = 5555;
-const singer = {name: 'Dr. Jahangir Alam', job: 'Web Developer'};
-const singerStyle = {
-  backgroundColor: 'yellow',
-  color: 'red',
-}
+import "./App.css";
+const singers = [
+  { name: "Jahangir Alam", job: "Student" },
+  { name: "Helal", job: "Marketer" },
+  { name: "Puspita", job: "Operator" },
+];
 function App() {
+  const nayoks = [
+    "Jahangir",
+    "Rubel",
+    "Bapparaz",
+    "Bappi",
+    "Manna",
+    "Shakib KHan",
+    "Ononto Jolil",
+    "Nisho",
+  ];
+
   return (
     <div className="App">
-      <Person name="Jahangir Alam"></Person>
-      <Person name="Rubel Hossen"></Person>
-      <Person nayika="Kopila" name="Bapparaz"></Person>
-      <Friend name="Jahangir Alam" phone="01767275819"></Friend>
+      {nayoks.map((nayok) => (
+        <li>Name: {nayok}</li>
+      ))}
+
+      {singers.map((nayok) => (
+        <Person name={nayok.name}></Person>
+      ))}
     </div>
   );
 }
 function Person(props) {
-  console.log(props)
-  return(
-    <div className='person'>
+  console.log(props);
+  return (
+    <div className="person">
       <h1>{props.name}</h1>
       <p>Naika: {props.nayika}</p>
     </div>
-  )
-}
-function Friend(props) {
-  console.log(props);
-  return (
-    <div className='person'>
-      <h3>Name: {props.name}</h3>
-      <p>Phone: {props.phone}</p>
-    </div>
-  )
+  );
 }
 
 export default App;
