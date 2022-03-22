@@ -1,0 +1,12 @@
+ul {
+    margin: 20px 0 0 20px;
+}
+ul>li {
+    list-style-type: none;
+    display: inline;
+    padding: 10px 14px;
+}
+
+ul>li a{
+    text-decoration: none;
+}
