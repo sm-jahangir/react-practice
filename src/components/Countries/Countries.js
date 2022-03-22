@@ -13,9 +13,14 @@ export default function Countries() {
         
     <div className='container'>
       <h2 className='text-center my-4 py-4'>Load Countries {countries.length}</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
-          {
+      <div className="row row-cols-1 row-cols-md-4 g-4">
+          {/* {
+            //First System
             countries.map((country, index) => <Country key={index} name={country.name.common} flags={country.flags.png} population={country.population}></Country>)
+          } */}
+          {
+            //Second System
+            countries.map((country, index) => <Country key={index} country={country}></Country>)
           }
       </div>
     </div>
