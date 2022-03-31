@@ -1,10 +1,16 @@
 import React from 'react'
 import './Product.css'
+import {adToCartDb, removeToCartDb} from '../../../utilities/fakeDb'
 
 function Product(props) {
     const {id, name, picture, age} = props.product;
     const addToCart = (id) => {
-      console.log('Items Added', id);
+      // console.log('Items Added', id);
+      adToCartDb(id)
+    }
+    const removeToCart = (id) => {
+      // console.log('Items Added', id);
+      removeToCartDb(id)
     }
   return (
     <div className='product'>
@@ -12,6 +18,7 @@ function Product(props) {
         <h2>{name}</h2>
         <p>{age}</p>
         <button onClick={() => addToCart(id)}>Add To Card</button>
+        <button onClick={() => removeToCart(id)}>Remove To Card</button>
     </div>
   )
 }
