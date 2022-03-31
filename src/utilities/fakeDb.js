@@ -9,8 +9,6 @@ const adToCartDb = (id) => {
         // akhane JSON.parse String data ta object hoye jabe abr ager moto
     }
 
-
-
     // JSON.stringify deya hoy karon shoppingCart object take string a convert korar jonno
     // localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart)); //
     //oporer 2 line rakha hoiche je kivabe empty object localstorage a save kora jay ata dekhar jonno
@@ -29,14 +27,21 @@ const adToCartDb = (id) => {
 
 }
 const removeToCartDb = (id) => {
-    const quantity = localStorage.getItem(id);
-    if (quantity) {
-        const newQuantity = parseInt(quantity) - 1;
-        localStorage.setItem(id, newQuantity);
+    const storeCart = localStorage.getItem('shopping-cart');
+    if(storeCart) {
+        const shoppingCart = JSON.parse(storeCart);
+        if (id in shoppingCart) {
+            // console.log('exist in jthe cart')
+            delete shoppingCart[id];
+            localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+        }
     }
 }
+const deleteShoppingCart = () => {
+    localStorage.removeItem('shopping-cart');
+}
 
-export {adToCartDb, removeToCartDb};
+export {adToCartDb, removeToCartDb, deleteShoppingCart};
 
 /*
 const adToCartDb = (id) => {
