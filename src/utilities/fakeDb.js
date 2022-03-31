@@ -20,6 +20,7 @@ const addToDb = id => {
     const storeCart = localStorage.getItem('shopping-cart');
     if (storeCart) {
         shoppingCart = JSON.parse(storeCart);
+        console.log('ALready exist', shoppingCart);
     } else {
         shoppingCart = {};
     }
@@ -36,4 +37,21 @@ const addToDb = id => {
     
 }
 
-export {addToDb};
+const removeFromDb = id => {
+    const storedCart = localStorage.getItem('shopping-cart');
+    if (storedCart) {
+        const shoppingCart = JSON.parse(storedCart);
+        if (id in shoppingCart) {
+            // console.log('exist in the cart');
+            delete shoppingCart[id];
+            localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+        }
+    } else {
+        
+    }
+}
+const deleteShoppingCart = () => {
+    localStorage.removeItem('shopping-cart');
+}
+
+export {addToDb, removeFromDb, deleteShoppingCart};
